@@ -12,21 +12,42 @@
 <body>
 
     <header class="navbar">
-        <div class="nav-side nav-left"></div> 
-        <div class="nav-center">
-            <a href="index.html">
-                <img src="assets/Letras FITAURA.png" alt="FIT AURA Logo" class="logo">
-            </a>
+    <div class="nav-side nav-left"></div> 
+    <div class="nav-center">
+        <a href="index.html">
+            <img src="assets/Letras FITAURA.png" alt="FIT AURA Logo" class="logo">
+        </a>
+    </div>
+    <div class="nav-side nav-right">
+        <div class="menu-toggle" id="mobile-menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
         </div>
-        <div class="nav-side nav-right">
-            <nav>
-                <a href="productos.html">Productos</a>
-                <a href="sobre-nosotros.html">Sobre Nosotros</a>
-                <a href="aplicacion.html">Aplicación</a>
-                <a href="https://notebooklm.google.com/notebook/1a202533-34b2-4acc-ba76-eec06b1f2f01?authuser=1" target="_blank">FAQ</a>
-            </nav>
-        </div>
-    </header>
+        <nav class="nav-links">
+            <a href="productos.html">Productos</a>
+            <a href="sobre-nosotros.html">Sobre Nosotros</a>
+            <a href="aplicacion.html">Aplicación</a>
+            <a href="https://notebooklm.google.com/notebook/1a202533-34b2-4acc-ba76-eec06b1f2f01?authuser=1" target="_blank">FAQ</a>
+        </nav>
+    </div>
+</header>
+
+<script>
+    const menu = document.querySelector('#mobile-menu');
+    const menuLinks = document.querySelector('.nav-links');
+
+    menu.addEventListener('click', function() {
+        menu.classList.toggle('is-active');
+        menuLinks.classList.toggle('active');
+    });
+
+    // Cerrar menú al hacer click en un enlace
+    document.querySelectorAll('.nav-links a').forEach(n => n.addEventListener('click', () => {
+        menu.classList.remove('is-active');
+        menuLinks.classList.remove('active');
+    }));
+</script>
 
     <main>
         <section class="hero">

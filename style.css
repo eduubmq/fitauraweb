@@ -1,5 +1,5 @@
 /* ==========================================================================
-   1. RESETEO Y TIPOGRAFÍA (ESTILO PREMIUM APPLE)
+   1. RESET Y BASE (ESTILO APPLE)
    ========================================================================== */
 * {
     margin: 0;
@@ -7,17 +7,16 @@
     box-sizing: border-box;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
 }
 
 body {
-    background-color: #000000; 
-    color: #f5f5f7; 
+    background-color: #000000;
+    color: #f5f5f7;
     overflow-x: hidden;
 }
 
 /* ==========================================================================
-   2. ANIMACIONES Y REVEAL SYSTEM
+   2. SISTEMA DE ANIMACIONES Y REVELADO (SCROLL)
    ========================================================================== */
 @keyframes fadeInUp {
     from { opacity: 0; transform: translateY(30px); }
@@ -29,233 +28,160 @@ body {
     to { opacity: 1; transform: translateY(0); }
 }
 
-.animate-load {
-    opacity: 0;
-    animation: fadeInUp 1s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
-}
-
+.animate-load { opacity: 0; animation: fadeInUp 1s cubic-bezier(0.2, 0.8, 0.2, 1) forwards; }
 .delay-1 { animation-delay: 0.2s; transition-delay: 0.2s; }
 .delay-2 { animation-delay: 0.4s; transition-delay: 0.4s; }
 
-.reveal-left { opacity: 0; transform: translateX(-50px); transition: all 1s cubic-bezier(0.2, 0.8, 0.2, 1); }
-.reveal-right { opacity: 0; transform: translateX(50px); transition: all 1s cubic-bezier(0.2, 0.8, 0.2, 1); }
-.reveal-scale { opacity: 0; transform: scale(0.9); transition: all 1s cubic-bezier(0.2, 0.8, 0.2, 1); }
+.reveal-left { opacity: 0; transform: translateX(-50px); transition: all 1s ease; }
+.reveal-right { opacity: 0; transform: translateX(50px); transition: all 1s ease; }
+.reveal-scale { opacity: 0; transform: scale(0.95); transition: all 1s ease; }
 
-.active { 
-    opacity: 1 !important; 
-    transform: translate(0) scale(1) !important; 
-}
+.active { opacity: 1 !important; transform: translate(0) scale(1) !important; }
 
 /* ==========================================================================
-   3. COMPONENTES GLOBALES (NAVBAR Y BOTONES)
+   3. BARRA DE NAVEGACIÓN Y MENÚ MÓVIL
    ========================================================================== */
 .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 40px; 
-    height: 100px;
-    background-color: rgba(0, 0, 0, 0.7); 
-    backdrop-filter: saturate(180%) blur(20px); 
-    -webkit-backdrop-filter: saturate(180%) blur(20px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1); 
-    position: fixed; 
-    top: 0;
-    width: 100%;
-    z-index: 1000;
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 0 40px; height: 100px; position: fixed; top: 0; width: 100%; z-index: 1000;
+    background-color: rgba(0, 0, 0, 0.8); backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px); border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     animation: fadeInDown 0.8s ease-out;
 }
 
 .nav-side { flex: 1; }
 .nav-center { flex: 0 0 auto; display: flex; justify-content: center; }
-.nav-right { display: flex; justify-content: flex-end; }
+.nav-right { display: flex; justify-content: flex-end; align-items: center; }
 
 .logo { height: 60px; width: auto; display: block; }
 
-nav a {
-    color: #d2d2d7; 
-    text-decoration: none; 
-    margin-left: 35px; 
-    font-size: 17px;
-    transition: color 0.3s ease;
-}
-nav a:hover { color: #ffffff; }
+.nav-links { display: flex; align-items: center; }
+.nav-links a { color: #d2d2d7; text-decoration: none; margin-left: 30px; font-size: 17px; transition: 0.3s; }
+.nav-links a:hover { color: #ffffff; }
 
+/* Botón Hamburguesa (oculto en PC) */
+.menu-toggle {
+    display: none; cursor: pointer; flex-direction: column;
+    justify-content: space-between; width: 30px; height: 21px; z-index: 1100;
+}
+.menu-toggle .bar { height: 3px; width: 100%; background-color: #f5f5f7; border-radius: 10px; transition: 0.3s; }
+
+/* ==========================================================================
+   4. COMPONENTES GLOBALES (BOTONES)
+   ========================================================================== */
 .btn-hero, .btn-more, .btn-submit, .btn-subscribe, .btn-info {
-    display: inline-block;
-    background-color: #f5f5f7;
-    color: #000000;
-    text-decoration: none;
-    padding: 18px 36px;
-    border-radius: 40px;
-    font-size: 18px;
-    font-weight: 600;
-    border: none;
-    cursor: pointer;
-    transition: all 0.4s ease;
-    text-align: center;
+    display: inline-block; background-color: #f5f5f7; color: #000000;
+    padding: 16px 32px; border-radius: 40px; font-size: 18px; font-weight: 600;
+    text-decoration: none; border: none; cursor: pointer; transition: 0.3s; text-align: center;
 }
-
 .btn-hero:hover, .btn-more:hover, .btn-submit:hover, .btn-subscribe:hover { 
-    transform: scale(1.05); 
-    background-color: #ffffff; 
-    box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+    transform: scale(1.05); background-color: #ffffff; box-shadow: 0 0 20px rgba(255, 255, 255, 0.2); 
 }
 
 /* ==========================================================================
-   4. PÁGINA PRINCIPAL (INDEX.HTML)
+   5. PÁGINA PRINCIPAL (INDEX.HTML)
    ========================================================================== */
 .hero {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    min-height: 70vh;
-    padding: 120px 20px 0 20px;
+    display: flex; flex-direction: column; justify-content: center; align-items: center;
+    text-align: center; min-height: 75vh; padding: 120px 20px 0 20px;
 }
-
 .hero h1 { font-size: 64px; font-weight: 700; line-height: 1.1; margin-bottom: 20px; letter-spacing: -0.02em; }
 .hero p { font-size: 24px; color: #86868b; max-width: 650px; margin-bottom: 40px; }
 
-.promo-section { 
-    padding: 10px 20px 40px 20px; 
-    display: flex; 
-    justify-content: center; 
-}
+.promo-section { padding: 10px 20px 40px 20px; display: flex; justify-content: center; }
 .image-container { max-width: 1100px; width: 100%; }
-.promo-img { width: 100%; border-radius: 30px; }
+.promo-img { width: 100%; border-radius: 30px; transition: transform 0.8s ease; }
+.promo-img:hover { transform: scale(1.01); }
 
-.featured-product { padding: 40px 20px 20px 20px; display: flex; justify-content: center; }
+.featured-product { padding: 40px 20px; display: flex; justify-content: center; }
 .featured-container { max-width: 1100px; display: flex; align-items: center; gap: 60px; }
 .product-image-side { flex: 1.2; }
 .product-text-side { flex: 1; text-align: left; }
 .product-img-featured { width: 100%; border-radius: 30px; }
-
 .product-text-side h2 { font-size: 48px; font-weight: 700; margin-bottom: 25px; line-height: 1.1; }
 .product-text-side p { font-size: 20px; color: #86868b; line-height: 1.6; margin-bottom: 40px; }
 
 .contact-section { padding: 20px 20px 100px 20px; display: flex; justify-content: center; }
 .contact-container { max-width: 800px; width: 100%; text-align: center; }
 .contact-container h2 { font-size: 42px; margin-bottom: 50px; }
-
 .form-group { margin-bottom: 30px; display: flex; flex-direction: column; text-align: left; }
 .form-group label { margin-bottom: 10px; color: #86868b; font-size: 16px; }
 .contact-form input, .contact-form textarea {
-    background: #1d1d1f; 
-    border: 1px solid #424245; 
-    border-radius: 12px;
-    padding: 15px; 
-    color: #f5f5f7; 
-    font-size: 16px; 
-    outline: none;
-    width: 100%;
-    transition: border-color 0.3s ease;
+    background: #1d1d1f; border: 1px solid #424245; border-radius: 12px;
+    padding: 15px; color: #f5f5f7; font-size: 16px; outline: none; width: 100%; transition: 0.3s;
 }
 .contact-form input:focus, .contact-form textarea:focus { border-color: #f5f5f7; }
 
 /* ==========================================================================
-   5. PÁGINA DE PRODUCTOS (PRODUCTOS.HTML)
+   6. PÁGINA DE PRODUCTOS (PRODUCTOS.HTML) - FIX IMÁGENES
    ========================================================================== */
 .pricing-page { padding-top: 140px; text-align: center; }
-.pricing-hero h1 { font-size: 56px; margin-bottom: 15px; font-weight: 700; }
+.pricing-hero h1 { font-size: 56px; font-weight: 700; margin-bottom: 15px; }
 .pricing-hero p { color: #86868b; font-size: 20px; margin-bottom: 20px; }
 
 .pricing-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px 20px 100px 20px;
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px; max-width: 1200px; margin: 0 auto; padding: 20px 20px 100px 20px;
 }
 
 .pricing-card {
-    background-color: #1d1d1f;
-    border-radius: 24px;
-    padding: 40px 30px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    transition: transform 0.3s ease;
-    opacity: 0;
+    background-color: #1d1d1f; border-radius: 24px; padding: 40px 30px;
+    display: flex; flex-direction: column; align-items: center;
+    transition: transform 0.3s ease; opacity: 0;
 }
-
 .pricing-card:hover { transform: translateY(-10px); }
 
 .plan-tag { font-style: italic; font-size: 18px; color: #86868b; margin-bottom: 10px; }
 .price { font-size: 42px; font-weight: 700; margin-bottom: 30px; }
 
-.card-img-wrap { width: 100%; height: 220px; display: flex; justify-content: center; align-items: center; margin-bottom: 20px; }
-.card-img { max-height: 100%; width: auto; object-fit: contain; border-radius: 15px; }
+/* FIX CONTENEDOR IMAGEN PRODUCTOS */
+.card-img-wrap { 
+    width: 100%; height: 220px; display: flex; 
+    justify-content: center; align-items: center; margin-bottom: 20px; 
+}
+.card-img { max-height: 100%; max-width: 100%; object-fit: contain; border-radius: 15px; }
 
 .card-desc { font-size: 16px; min-height: 60px; margin-bottom: 20px; color: #f5f5f7; line-height: 1.4; }
 hr { width: 100%; border: 0; border-top: 1px solid #424245; margin-bottom: 25px; }
-
 .features { list-style: none; text-align: left; width: 100%; margin-bottom: 40px; }
 .features li { font-size: 14px; color: #d2d2d7; margin-bottom: 12px; line-height: 1.4; position: relative; padding-left: 20px; }
 .features li::before { content: "•"; position: absolute; left: 0; color: #86868b; }
-
 .card-buttons { width: 100%; display: flex; flex-direction: column; gap: 12px; }
 
-.btn-info { background: none; border: 1px solid #f5f5f7; color: #f5f5f7; padding: 12px; border-radius: 40px; }
-.btn-info:hover { background: #f5f5f7; color: #000000; }
-
 /* ==========================================================================
-   6. PÁGINA DE APLICACIÓN (APLICACION.HTML) - NUEVA SECCIÓN FIX
+   7. PÁGINA APLICACIÓN (APLICACION.HTML)
    ========================================================================== */
 .app-page { display: flex; flex-direction: column; align-items: center; }
-
-/* Hero específico para app para reducir espacio superior */
-.app-hero {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    min-height: 40vh; /* Altura reducida para subir el texto */
-    padding: 110px 20px 20px 20px; /* Padding superior ajustado (100px nav + 10px) */
-}
-
+.app-hero { text-align: center; min-height: 40vh; padding: 110px 20px 20px 20px; }
 .app-hero h1 { font-size: 56px; font-weight: 700; margin-bottom: 15px; }
 .app-hero p { font-size: 20px; color: #86868b; max-width: 600px; margin-bottom: 30px; }
-
 .app-preview { padding-bottom: 100px; width: 100%; display: flex; justify-content: center; }
 .image-container-app { max-width: 1100px; width: 100%; text-align: center; }
-.app-img { max-width: 80%; height: auto; border-radius: 20px; } /* Control de tamaño de la imagen */
+.app-img { max-width: 80%; height: auto; border-radius: 20px; box-shadow: 0 20px 50px rgba(0,0,0,0.5); }
 
 /* ==========================================================================
-   7. OTRAS PÁGINAS (SOBRE NOSOTROS & PDF)
+   8. PÁGINA SOBRE NOSOTROS (SOBRE-NOSOTROS.HTML)
    ========================================================================== */
-.about-page-pdf {
-    padding-top: 140px;
-    padding-bottom: 60px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-}
-
-.pdf-section { width: 90%; max-width: 1100px; margin-bottom: 60px; }
+.about-page-pdf { padding-top: 140px; padding-bottom: 60px; display: flex; flex-direction: column; align-items: center; gap: 40px; }
+.pdf-section { width: 90%; max-width: 1100px; text-align: center; }
 .pdf-section h1 { font-size: 48px; margin-bottom: 30px; }
+.pdf-container { background: #1d1d1f; width: 100%; border-radius: 24px; overflow: hidden; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 20px 40px rgba(0,0,0,0.5); }
 
-.pdf-container { 
-    background: #1d1d1f; border-radius: 24px; overflow: hidden; border: 1px solid rgba(255,255,255,0.1);
-    box-shadow: 0 20px 40px rgba(0,0,0,0.5);
-}
-
+/* FIX CONTENEDORES DE EQUIPO Y FEED */
 .team-section { width: 100%; text-align: center; padding-bottom: 40px; }
 .team-image-container { width: 60%; max-width: 600px; margin: 0 auto; border-radius: 20px; overflow: hidden; }
-.team-img { width: 100%; height: auto; display: block; }
+.team-img { width: 100%; height: auto; display: block; transition: 0.3s; }
+.team-img:hover { transform: scale(1.02); }
 
 .feed-section { width: 90%; max-width: 1100px; padding-bottom: 80px; }
 .feed-image-container { width: 100%; border-radius: 24px; overflow: hidden; }
-.feed-img { width: 100%; height: auto; display: block; }
+.feed-img { width: 100%; height: auto; display: block; transition: 0.3s; }
+.feed-img:hover { transform: scale(1.02); }
 
 /* ==========================================================================
-   8. PIE DE PÁGINA (FOOTER)
+   9. FOOTER
    ========================================================================== */
-.footer { padding: 80px 40px 40px 40px; border-top: 1px solid rgba(255, 255, 255, 0.1); }
+.footer { padding: 80px 40px 40px 40px; border-top: 1px solid rgba(255, 255, 255, 0.1); background-color: #000; }
 .footer-container { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; }
 .brand-col { display: flex; flex-direction: column; align-items: flex-start; }
 .footer-logo { height: 40px; width: auto; margin-bottom: 15px; }
@@ -264,23 +190,44 @@ hr { width: 100%; border: 0; border-top: 1px solid #424245; margin-bottom: 25px;
 .footer-column h4 { font-size: 16px; font-weight: 600; margin-bottom: 20px; color: #f5f5f7; }
 .footer-column ul { list-style: none; }
 .footer-column ul li { margin-bottom: 12px; }
-.footer-column ul li a { text-decoration: none; color: #86868b; font-size: 14px; transition: color 0.3s ease; }
+.footer-column ul li a { text-decoration: none; color: #86868b; font-size: 14px; transition: 0.3s; }
 .footer-column ul li a:hover { color: #ffffff; }
 
 /* ==========================================================================
-   9. AJUSTES RESPONSIVOS (MÓVIL)
+   10. RESPONSIVE Y MENÚ MÓVIL (TABLET & SMARTPHONES)
    ========================================================================== */
-@media (max-width: 768px) {
+@media (max-width: 968px) {
     .navbar { padding: 0 20px; }
     .nav-left { display: none; }
-    .hero h1, .app-hero h1 { font-size: 42px; }
     
+    /* Mostrar botón hamburguesa */
+    .menu-toggle { display: flex; }
+    
+    /* Configuración menú lateral */
+    .nav-links {
+        position: fixed; top: 0; right: -100%; width: 75%; height: 100vh;
+        background-color: rgba(10, 10, 10, 0.98); backdrop-filter: blur(25px); -webkit-backdrop-filter: blur(25px);
+        flex-direction: column; justify-content: center; align-items: center;
+        transition: all 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
+        box-shadow: -10px 0 30px rgba(0,0,0,0.5);
+    }
+    
+    .nav-links.active { right: 0; }
+    .nav-links a { margin: 25px 0; font-size: 24px; }
+
+    /* Animación X Hamburguesa */
+    .menu-toggle.is-active .bar:nth-child(2) { opacity: 0; }
+    .menu-toggle.is-active .bar:nth-child(1) { transform: translateY(9px) rotate(45deg); }
+    .menu-toggle.is-active .bar:nth-child(3) { transform: translateY(-9px) rotate(-45deg); }
+
+    /* Ajustes Generales Móvil */
+    .hero h1, .app-hero h1 { font-size: 42px; }
+    .hero p { font-size: 18px; }
     .featured-container { flex-direction: column; text-align: center; gap: 40px; }
     .product-text-side { text-align: center; }
     
     .pricing-grid { grid-template-columns: 1fr; }
-    
-    .footer-container { grid-template-columns: 1fr 1fr; }
+    .footer-container { grid-template-columns: 1fr 1fr; gap: 30px; }
     
     .team-image-container { width: 85%; }
     .pdf-container embed { height: 500px; }
