@@ -113,7 +113,7 @@ body {
 .contact-form input:focus, .contact-form textarea:focus { border-color: #f5f5f7; }
 
 /* ==========================================================================
-   6. PÁGINA DE PRODUCTOS (PRODUCTOS.HTML) - FIX IMÁGENES
+   6. PÁGINA DE PRODUCTOS 
    ========================================================================== */
 .pricing-page { padding-top: 140px; text-align: center; }
 .pricing-hero h1 { font-size: 56px; font-weight: 700; margin-bottom: 15px; }
@@ -134,7 +134,6 @@ body {
 .plan-tag { font-style: italic; font-size: 18px; color: #86868b; margin-bottom: 10px; }
 .price { font-size: 42px; font-weight: 700; margin-bottom: 30px; }
 
-/* FIX CONTENEDOR IMAGEN PRODUCTOS */
 .card-img-wrap { 
     width: 100%; height: 220px; display: flex; 
     justify-content: center; align-items: center; margin-bottom: 20px; 
@@ -149,7 +148,7 @@ hr { width: 100%; border: 0; border-top: 1px solid #424245; margin-bottom: 25px;
 .card-buttons { width: 100%; display: flex; flex-direction: column; gap: 12px; }
 
 /* ==========================================================================
-   7. PÁGINA APLICACIÓN (APLICACION.HTML)
+   7. PÁGINA APLICACIÓN
    ========================================================================== */
 .app-page { display: flex; flex-direction: column; align-items: center; }
 .app-hero { text-align: center; min-height: 40vh; padding: 110px 20px 20px 20px; }
@@ -160,14 +159,13 @@ hr { width: 100%; border: 0; border-top: 1px solid #424245; margin-bottom: 25px;
 .app-img { max-width: 80%; height: auto; border-radius: 20px; box-shadow: 0 20px 50px rgba(0,0,0,0.5); }
 
 /* ==========================================================================
-   8. PÁGINA SOBRE NOSOTROS (SOBRE-NOSOTROS.HTML)
+   8. PÁGINA SOBRE NOSOTROS
    ========================================================================== */
 .about-page-pdf { padding-top: 140px; padding-bottom: 60px; display: flex; flex-direction: column; align-items: center; gap: 40px; }
 .pdf-section { width: 90%; max-width: 1100px; text-align: center; }
 .pdf-section h1 { font-size: 48px; margin-bottom: 30px; }
 .pdf-container { background: #1d1d1f; width: 100%; border-radius: 24px; overflow: hidden; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 20px 40px rgba(0,0,0,0.5); }
 
-/* FIX CONTENEDORES DE EQUIPO Y FEED */
 .team-section { width: 100%; text-align: center; padding-bottom: 40px; }
 .team-image-container { width: 60%; max-width: 600px; margin: 0 auto; border-radius: 20px; overflow: hidden; }
 .team-img { width: 100%; height: auto; display: block; transition: 0.3s; }
@@ -200,10 +198,8 @@ hr { width: 100%; border: 0; border-top: 1px solid #424245; margin-bottom: 25px;
     .navbar { padding: 0 20px; }
     .nav-left { display: none; }
     
-    /* Mostrar botón hamburguesa */
     .menu-toggle { display: flex; }
     
-    /* Configuración menú lateral */
     .nav-links {
         position: fixed; top: 0; right: -100%; width: 75%; height: 100vh;
         background-color: rgba(10, 10, 10, 0.98); backdrop-filter: blur(25px); -webkit-backdrop-filter: blur(25px);
@@ -215,15 +211,19 @@ hr { width: 100%; border: 0; border-top: 1px solid #424245; margin-bottom: 25px;
     .nav-links.active { right: 0; }
     .nav-links a { margin: 25px 0; font-size: 24px; }
 
-    /* Animación X Hamburguesa */
     .menu-toggle.is-active .bar:nth-child(2) { opacity: 0; }
     .menu-toggle.is-active .bar:nth-child(1) { transform: translateY(9px) rotate(45deg); }
     .menu-toggle.is-active .bar:nth-child(3) { transform: translateY(-9px) rotate(-45deg); }
 
-    /* Ajustes Generales Móvil */
     .hero h1, .app-hero h1 { font-size: 42px; }
     .hero p { font-size: 18px; }
-    .featured-container { flex-direction: column; text-align: center; gap: 40px; }
+    
+    /* FIX: Invertir orden del producto destacado en móvil */
+    .featured-container { 
+        flex-direction: column-reverse; /* El texto se mostrará arriba de la imagen */
+        text-align: center; 
+        gap: 40px; 
+    }
     .product-text-side { text-align: center; }
     
     .pricing-grid { grid-template-columns: 1fr; }
